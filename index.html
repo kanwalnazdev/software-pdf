@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Image Tools | Convert & Share</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="#home" aria-label="ImageTools home">
+            <svg class="brand-icon" viewBox="0 0 48 40" aria-hidden="true">
+                <rect x="2" y="2" width="44" height="36" rx="8" fill="currentColor"/>
+                <rect x="7" y="7" width="34" height="26" rx="4" fill="#fff"/>
+                <path d="M9 28 19 17l7 7 5-5 8 9v3H9z" fill="#64a7f3"/>
+                <circle cx="31" cy="14" r="3" fill="#64a7f3"/>
+            </svg>
+            <span>Image<span class="brand-accent">Tools.</span></span>
+        </a>
+        <nav class="navbar-links" aria-label="Main navigation">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#pdf">Image to PDF</a>
+            <a class="nav-link" href="#link">Image to Link</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-copy">
+                <p class="eyebrow">YOUR CREATIVE IMAGE WORKSPACE</p>
+                <h1>Your All-in-One<br><span>Image Toolkit</span></h1>
+                <p class="hero-description">
+                    Convert your images into PDF and generate shareable image links easily.
+                </p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <svg viewBox="0 0 440 250">
+                    <path class="art-spark" d="m47 92 20 9m-6-28 14 14m-31 31 19-4"/>
+                    <g transform="rotate(-13 196 111)">
+                        <rect x="112" y="32" width="170" height="138" rx="15" fill="#fff"/>
+                        <rect x="123" y="43" width="148" height="116" rx="10" fill="#b99af1"/>
+                        <path d="m128 143 43-52 27 31 22-24 47 49v12H128z" fill="#5127a5"/>
+                    </g>
+                    <g transform="rotate(8 258 123)">
+                        <rect x="199" y="48" width="166" height="137" rx="15" fill="#fff"/>
+                        <rect x="210" y="59" width="144" height="115" rx="10" fill="#a77cff"/>
+                        <circle cx="241" cy="82" r="10" fill="#d9c8ff"/>
+                        <path d="m214 157 45-52 26 31 22-24 43 40v22H214z" fill="#5127a5"/>
+                    </g>
+                    <path d="M248 166c0-22 18-40 40-40 6-25 28-42 54-42 29 0 52 22 54 50 21 4 36 22 36 43 0 24-19 43-43 43H287c-22 0-39-17-39-38 0-6 0-11 0-16z" fill="#7041ce" stroke="#fff" stroke-width="7"/>
+                    <path d="M337 190v-57m0 0-19 19m19-19 19 19" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="397" cy="43" r="8" fill="#b895f0"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="container" aria-label="Image tools">
+            <article class="tool-card" id="pdf">
+                <div class="tool-heading">
+                    <div class="tool-icon pdf-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M14 4h25l15 15v37a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor"/>
+                            <path d="M39 4v14a3 3 0 0 0 3 3h12" fill="none" stroke="#fff" stroke-width="4"/>
+                            <text x="15" y="47" fill="#fff" font-size="17" font-weight="800">PDF</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Image to PDF Converter</h2>
+                        <p>Upload multiple images and convert them into one PDF.</p>
+                    </div>
+                </div>
+
+                <label class="dropzone" id="pdfDropzone" for="pdfInput">
+                    <input type="file" id="pdfInput" accept="image/*" multiple>
+                    <svg class="upload-icon" viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M13 34H10a7 7 0 0 1-1-14 14 14 0 0 1 27-3 9 9 0 0 1 2 17h-3M24 39V22m0 0-7 7m7-7 7 7" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="drop-title">Drag &amp; drop images here</span>
+                    <span class="drop-or">or</span>
+                    <span class="choose-button">Choose Files</span>
+                    <span class="drop-hint">Max 20 images, 10 MB each</span>
+                </label>
+
+                <div id="pdfPreview" class="preview-grid"></div>
+                <button class="action-button" id="convertBtn" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 2h9l5 5v15H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1v5h5M8 13h8m-8 3h8m-8 3h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Convert to PDF
+                </button>
+                <p id="pdfMessage" class="message" aria-live="polite"></p>
+            </article>
+
+            <article class="tool-card" id="link">
+                <div class="tool-heading">
+                    <div class="tool-icon link-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <rect x="4" y="10" width="56" height="44" rx="8" fill="currentColor"/>
+                            <rect x="9" y="15" width="46" height="34" rx="5" fill="#fff"/>
+                            <text x="32" y="38" fill="#7041ce" font-size="15" font-weight="800" text-anchor="middle">LINK</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Image to Link Generator</h2>
+                        <p>Upload an image and generate a shareable link.</p>
+                    </div>
+                </div>
+
+                <label class="dropzone link-dropzone" id="linkDropzone" for="linkInput">
+                    <input type="file" id="linkInput" accept="image/*" multiple>
+                    <svg class="upload-icon" viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M13 34H10a7 7 0 0 1-1-14 14 14 0 0 1 27-3 9 9 0 0 1 2 17h-3M24 39V22m0 0-7 7m7-7 7 7" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="drop-title">Drag &amp; drop images here</span>
+                    <span class="drop-or">or</span>
+                    <span class="choose-button">Choose Files</span>
+                    <span class="drop-hint">Max 10 MB per image</span>
+                </label>
+
+                <div id="linkPreview" class="preview-grid link-preview"></div>
+                <button class="action-button" id="uploadBtn" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m10 14 4-4m-7 7-2 2a4 4 0 0 1-6-6l5-5a4 4 0 0 1 6 0m4 2 2-2a4 4 0 0 1 6 6l-5 5a4 4 0 0 1-6 0" transform="translate(2 -2)" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    Generate Image Link
+                </button>
+
+                <div id="linkResult" class="link-result" hidden></div>
+                <p id="linkMessage" class="message" aria-live="polite"></p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Image Tools | All Rights Reserved</p>
+         <p>Made with ♡ for everyone</p>
+        <nav aria-label="Footer navigation">
+            <a href="#pdf">Convert</a><span>•</span>
+            <a href="#link">Share</a><span>•</span>
+            <a href="#home">Explore</a>
+            <span class="footer-heart" aria-hidden="true">♡</span>
+        </nav>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
